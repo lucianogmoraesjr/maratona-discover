@@ -204,7 +204,7 @@ const Form = {
             const transaction = Form.formatData()
             Transaction.add(transaction)
             Form.clearFields()
-            Modal.close()
+            Modal.toggle()
         } catch (error) {
             alert(error.message)
         }
