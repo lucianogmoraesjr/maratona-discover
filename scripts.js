@@ -1,11 +1,39 @@
+const html = document.querySelector("html");
+const checkbox = document.querySelector("input[name=theme]");
+
+const getStyle = (element, style) => window.getComputedStyle(element).getPropertyValue(style);
+
+const initialColors = {
+    bg: getStyle(html, "--bg"),
+    darkGreen: getStyle(html, "--dark-green"),
+    cardBg: getStyle(html, "--card-bg"),
+    green: getStyle(html, "--green"),
+    darkBlue: getStyle(html, "--dark-blue"),
+};
+
+const darkMode = {
+    bg: "#06090f",
+    darkGreen: "#161b22",
+    cardBg: "#0d1117",
+    green: " #12a454",
+    darkBlue: "#58a6f0",
+};
+
+const transformKey = key => "--" + key.replace(/([A-Z])/g, "-$1").toLowerCase();
+
+
+const changeColors = (colors) => {
+    Object.keys(colors).map(key => html.style.setProperty(transformKey(key), colors[key]));
+}
+
+checkbox.addEventListener("change", ({target}) => {
+    target.checked ? changeColors(darkMode) : changeColors(initialColors)
+});
+
 const Modal = {
-    open() {
+    toggle() {
         document.querySelector(".modal-overlay")
-        .classList.add('active');
-    },
-    close() {
-        document.querySelector(".modal-overlay")
-        .classList.remove('active');
+            .classList.toggle('active');
     }
 };
 
@@ -115,9 +143,9 @@ const Utils = {
     },
 
     formatAmount(value) {
-        value = Number(value.replace(/\,\./g, "")) * 100;
+        value = value * 100;
 
-        return value;
+        return Math.round(value);
     },
 
     formatDate(date) {
@@ -182,7 +210,6 @@ const Form = {
         }
     }
 };
-
 
 const App = {
     init() {

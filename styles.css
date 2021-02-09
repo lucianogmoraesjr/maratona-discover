@@ -1,5 +1,7 @@
 /*============ GLOBAL ============*/
 :root {
+    --bg: #f0f2f5;
+    --card-bg: #fff;
     --dark-blue: #363f5f;
     --dark-green: #2d4a22;
     --green: #49aa26;
@@ -20,7 +22,7 @@ html {
 }
 
 body {
-    background: #f0f2f5;
+    background: var(--bg);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -107,12 +109,62 @@ button:hover {
 header {
     background: var(--dark-green);
     padding: 2rem 0 10rem;
-    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .toggle {
+    margin-left: 2rem;
 }
 
 #logo {
     color: #fff;
     font-weight: 100;
+}
+
+/*============ TOGGLE DARK MODE ============*/
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: grey;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+label::after{
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    background-color: var(--green);
+}
+
+input:checked + label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 45px;
 }
 
 /*============ BALANCE ============*/
@@ -127,7 +179,7 @@ header {
 
 /*============ CARDS ============*/
 .card {
-    background: #fff;
+    background: var(--card-bg);
     padding: 1.5rem 2rem;
     border-radius: 0.25rem;
 
@@ -183,7 +235,7 @@ table thead tr td:last-child {
 }
 
 table thead th {
-    background: #fff;
+    background: var(--card-bg);
 
     font-weight: 400;
 
@@ -193,7 +245,7 @@ table thead th {
 }
 
 table tbody td {
-    background: #fff;
+    background: var(--card-bg);
 
     padding: 1rem 2rem;
 }
