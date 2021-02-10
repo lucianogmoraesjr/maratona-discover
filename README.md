@@ -5,7 +5,6 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -26,6 +25,8 @@
 ## 💻 Projeto
 
 O dev.finance$ é uma espécie de carteira digital, onde o o usuário registra entradas e saídas de seu dinheiro manualmente. O projeto tem como objetivo colocar em prática o conteúdo abordado no curso Discover da Rocketseat.
+
+Funcionalidade extra: Dark Mode
 
 ## 🚀 Tecnologias
 
